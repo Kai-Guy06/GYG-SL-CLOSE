@@ -1,0 +1,406 @@
+<html>
+    <head>
+        <style>
+            tr {
+                background-color: rgb(255, 154, 154);
+            }
+            table, th, td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                border-collapse: collapse;
+            }
+            .subtitle {
+                text-align: center;
+                background-color: lightgrey;
+            }
+            .highlighted {
+                background-color: rgb(255, 255, 255);
+            }
+            th {
+                background-color: yellow;
+            }
+
+        </style>
+        <header>
+            <title>Shift Leader Close Checklist</title>
+            <h1>GYG FM Shift Leader Close</h1>
+        </header>
+    </head>
+    <body>
+        <span>
+            <form>
+                <table>
+                    <tr>
+                        <th onclick="check_all()">Completed</th>
+                        <th>Task</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Line Close Tasks</th>
+                    </tr>
+                    <tr>
+                        <td> <input type="checkbox" id="id_corn"> </td>
+                        <td> <input id="id_value_corn" type="number" value=4 size=1> boxes of corn chips out to defrost</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="id_tortilla"></td>
+                        <td><input id="id_value_12" type="number" value=2> boxes of 12' and <input type="number" id="id_value_10" value=2 size=1> box of 10' tortillas to defrost</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="0"></td>
+                        <td>4 boxes of 5.5' corn tortilla to defrost</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="1"></td>
+                        <td>Wipe down shelves underneath line</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="2"></td>
+                        <td>Clean 4 salamanders and  shelf below</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="3"></td>
+                        <td>Clean Quesadilla press</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="4"></td>
+                        <td>Clean cold line fridge</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="5"></td>
+                        <td>Clean and wipe chip warmer</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="6"></td>
+                        <td>Scrub cool room floor.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="7"></td>
+                        <td>Scrub cool room floor.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="8"></td>
+                        <td>Change guaca, pico and cheese to a clean container and wrap it</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="9"></td>
+                        <td>Empty guac sides, sour cream and chipotle mayo in a FIFO bottle</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="10"></td>
+                        <td>Empty bain marie water and clean the whole line</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="11"></td>
+                        <td>Set up line containers right</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="12"></td>
+                        <td>Set up the utensils</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="13"></td>
+                        <td>Clean floor drains</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="14"></td>
+                        <td>Waste all coriander and onions from salsa station and line.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="15"></td>
+                        <td>Make sure line is empty and turned off</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="16"></td>
+                        <td>turn off line fridge</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Fries Close Tasks</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="17"></td>
+                        <td>Clean the whole chip dump</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="18"></td>
+                        <td>Clean the floor under and behind the freezer drawer and hot box</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="19"></td>
+                        <td>Empty & clean shakers and leave them to air dry</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="20"></td>
+                        <td>Wipe all pipe shelves above the fryer</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="21"></td>
+                        <td>Daily Filter all fryers </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="22"></td>
+                        <td>Clean all freezer drawers</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="23"></td>
+                        <td>Clean churros fryer</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="24"></td>
+                        <td>Clean churros trays and place them back on the shelf ready to go</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="25"></td>
+                        <td>Clean floor under the fryer</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Sales Close Tasks</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle">SALES</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="26"></td>
+                        <td>Fill napkin's dispensers</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="27"></td>
+                        <td>Fill all drink's fridge (sales, app and DT) and refill BOH Fridge</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="28"></td>
+                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="29"></td>
+                        <td>Empty all bins in dinning area</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="30"></td>
+                        <td>Wipe all tables at dining area before putting furniture up.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="31"></td>
+                        <td>Empty and clean all dust pans.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="32"></td>
+                        <td>Clean the big bin (spray with water)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle"> DT BnT</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="33"></td>
+                        <td>Restock: napkins, cuttlery, bags, dulce/chocolate sauce</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="34"></td>
+                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle">DT Box</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="35"></td>
+                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="36"></td>
+                        <td>Leave counter organised and free of clutter</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="37"></td>
+                        <td>Sweep and Scrub the floor under the counter</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="38"></td>
+                        <td>Leave 4 spare register rolls for next day </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Coffee/APP/Soft Serve CLose Tasks</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle">COFFEE</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="39"></td>
+                        <td>Clean coffee machine</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="40"></td>
+                        <td>Clean grinder</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="41"></td>
+                        <td>Clean coffee machine bench</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="42"></td>
+                        <td>Clean and restock milk fridge (FIFO)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="43"></td>
+                        <td>Restock all cups, all lids, sugar, sweetner, syrups</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle">APP/DEL</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="44"></td>
+                        <td>Restock APP/DEL Drinks fridge</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="45"></td>
+                        <td>Restock Dulce/ Chocolate sauce APP, DT and BnT</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="46"></td>
+                        <td>Clean and organise APP bench area</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="47"></td>
+                        <td>Clean and organise DEL Warmer (outside & inside)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subtitle">SOFT SERVE</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="48"></td>
+                        <td>Restock soft serve machine to the right level</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="49"></td>
+                        <td>Clean Soft serve bench and shelves underneath the machine</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="50"></td>
+                        <td>Pack away cones properly</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="51"></td>
+                        <td>Restock cups and spoons</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="52"></td>
+                        <td>Make sure sauces has FIFO label</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Cook and Kitchen Hand Close Tasks</th>
+                    </tr>
+                    <tr>
+                        <td class="subtitle" colspan="2">Cook</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="53"></td>
+                        <td>Cool Room rotation and FIFO checked and signed off</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="54"></td>
+                        <td>Remove and spray all hood filter</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="55"></td>
+                        <td>Clean and polish the entire hood</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="56"></td>
+                        <td>Clean Stove TOP</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="57"></td>
+                        <td>Clean all cook and prep benches</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="58"></td>
+                        <td>Clean all cook area walls</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="59"></td>
+                        <td>Leave all Cook pots and utensils clean and ready to go for next morning</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="60"></td>
+                        <td>Wipe shelves above the grill and stove</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="61"></td>
+                        <td>Clean all pepper and salt shakers & refill oil spray bottles</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">DISHWASHER</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="62"></td>
+                        <td>Wash all dishes</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="63"></td>
+                        <td>Organsie all dishes and utensils in the right place</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="64"></td>
+                        <td>Clean inside and wipe outside of both dishwashers</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="65"></td>
+                        <td>Wipe the sink wall and benches</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="66"></td>
+                        <td>Scrub both water spray gun</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="67"></td>
+                        <td>Scrub the floor underneath he dishwasher Tue, Thu and Sat</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Notes</th>
+                    </tr>
+                    <td colspan="2"><input size="100"></td>
+                </table>
+            </form>
+        </span>
+        <script>
+            document.querySelectorAll('td input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function(){
+                    const row = this.closest('tr');
+                    if (this.checked) {
+                        row.classList.add('highlighted');
+                    } else{
+                        row.classList.remove('highlighted');
+                    }
+                });
+            });
+
+            var check = true;
+            function check_all() {
+                document.getElementById("id_corn").checked = check;
+                document.getElementById("id_tortilla").checked = check;
+                if (check){
+                    document.getElementById("id_corn").closest('tr').classList.add('highlighted');
+                    document.getElementById("id_tortilla").closest('tr').classList.add('highlighted');
+                } else {
+                    document.getElementById("id_corn").closest('tr').classList.remove('highlighted');
+                    document.getElementById("id_tortilla").closest('tr').classList.remove('highlighted');
+                }
+                
+                var z=0;
+                for (z=0; z<68; z++){
+                    document.getElementById(z).checked = check;
+                    if(check){
+                        document.getElementById(z).closest('tr').classList.add('highlighted');
+                    } else {
+                        document.getElementById(z).closest('tr').classList.remove("highlighted");
+                    }
+                }
+                if(check){
+                    check = false;
+                } else {
+                    check = true;
+                }
+            }
+
+        </script>
+    </body>
+</html>
