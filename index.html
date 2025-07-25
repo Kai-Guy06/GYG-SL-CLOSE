@@ -1,14 +1,68 @@
 <html>
     <head>
         <style>
+            html {
+                margin: -10;
+                padding: 0;
+            }
+            body {
+                background-image: url('background.png');
+                background-color: rgba(255, 255, 255, 0.8);
+                background-blend-mode: lighten;
+                background-size: cover;
+                text-align: center;
+            }
+            button {
+                margin-top: 10;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+            h1, h2 {
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            h2 {
+                text-align: left;
+                padding-left: 10;
+                font-size: small;
+                margin-top: 50;
+            }
+            .headingContainer {
+                background: rgb(23, 23, 23);
+                padding-top: 1px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                height: 140;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+                vertical-align: center;             
+                
+            }
+            header {
+                align-items: center;
+            }
+            .hidden-element {
+                display: none;
+            }
             tr {
                 background-color: rgb(255, 154, 154);
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
             table, th, td {
-                border-color: black;
-                border-style: solid;
-                border-width: 1px;
+                
+                border-color: #2c2c2c;
+                border-style: groove;
+                border-width: 0.001px;
                 border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+                color: #1a1a1a;
+                
+            }
+            table{
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+            th {
+                background: linear-gradient(90deg, #ffeb38, #f4ff96)
             }
             .subtitle {
                 text-align: center;
@@ -17,20 +71,36 @@
             .highlighted {
                 background-color: rgb(255, 255, 255);
             }
+            .static {
+                background-color: white;
+            }
             th {
                 background-color: yellow;
+                
+            }
+            tr:hover {
+                background-color: rgb(255, 255, 255);
+                transition: background-color 0.1s ease-in-out;
             }
 
         </style>
-        <header>
+        <header class = "headingContainer">
             <title>Shift Leader Close Checklist</title>
-            <h1>GYG FM Shift Leader Close</h1>
+            <div>
+                <h1>GYG FM Shift Leader Close</h1>
+                <h2>Current Date: <span id='dateDisplay'></span></h2>
+            </div>
         </header>
     </head>
     <body>
+        <button id="sl" onClick ="slTable()">Shift Leader Close Walk</button>
+        <button id="all" onClick = "allTable()">All Closing Tasks</button>
+        <button onClick="check_all()">Check All</button>
+        <p></p>
+
         <span>
             <form>
-                <table>
+                <table id="tableId">
                     <tr>
                         <th onclick="check_all()">Completed</th>
                         <th>Task</th>
@@ -39,11 +109,11 @@
                         <th colspan="2">Line Close Tasks</th>
                     </tr>
                     <tr>
-                        <td> <input type="checkbox" id="id_corn"> </td>
+                        <td> <input type="checkbox" id="69"> </td>
                         <td> <input id="id_value_corn" type="number" value=4 size=1> boxes of corn chips out to defrost</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" id="id_tortilla"></td>
+                        <td><input type="checkbox" id="68"></td>
                         <td><input id="id_value_12" type="number" value=2> boxes of 12' and <input type="number" id="id_value_10" value=2 size=1> box of 10' tortillas to defrost</td>
                     </tr>
                     <tr>
@@ -359,9 +429,126 @@
                     </tr>
                     <td colspan="2"><input size="100"></td>
                 </table>
+                <table id="slTableId">
+                    <tr>
+                        <th colspan="2">SL - Closing Checklist</th>
+                    </tr>
+                    <tr class = "static">
+                        <td>1</td>
+                        <td>BrandMate Sing off Level 1 - don’t forget comments</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>2</td>
+                        <td>Count all tills</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>3</td>
+                        <td>Prepare Deposit bank and enter details on NAB Website</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>4</td>
+                        <td>Fill out Cash Management spreadsheet</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>5</td>
+                        <td>Enter Waste on CT</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>6</td>
+                        <td>Fill and Send KPI Report to RM, Paul, Gabi, Rosa, Lucas & Tati</td>
+                    </tr>
+                    <tr class = "static">
+                        <td>7</td>
+                        <td>Help crew to finish once SL tasks are done.</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">SL - Walking through after closing</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="0"></td>
+                        <td>All slim bins empty and with bin liners on.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="1"></td>
+                        <td>All electrical equipment turned off: salamandra, warmers, presses, churros fryer…</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="2"></td>
+                        <td>All gas appliances turned off: Fryer , grill, rice cokers and stove.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="3"></td>
+                        <td>Cool room and freezers working and doors are properly closed</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="4"></td>
+                        <td>Cook's and line's fridges are  empty and turned off</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="5"></td>
+                        <td>Corn Chips and Corn Tacos Defrosting</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="6"></td>
+                        <td>Nothing left out of cool room (inspect benches and line & cooks fridges)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="7"></td>
+                        <td>ALL Menu Board TV Screens OFF</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="8"></td>
+                        <td>Music OFF</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="9"></td>
+                        <td>Air con OFF</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="10"></td>
+                        <td>No opened boxes in the cool room. If opened please take the content out</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="11"></td>
+                        <td>Cool room organised for delivery and light off</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="12"></td>
+                        <td>Check Cool Room FIFO rotation - labels</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="13"></td>
+                        <td>Check fryers have been cleaned properly</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="14"></td>
+                        <td>Check dining area tables are cleaned and bin empty</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="15"></td>
+                        <td>Do I have to communicate any shortage in stock or food level for next day?</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="16"></td>
+                        <td>All doors and windows are properly closed and locked (double check backdoor)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="17"></td>
+                        <td>Lock the backdoor and set the alarm just before leaving</td>
+                    </tr>
+                    <tr>
+                        <td><b>SL</b></td>
+                        <td><input size="100"></td>
+                    </tr>
+                </table>
             </form>
         </span>
         <script>
+            const dateDisplay = document.getElementById("dateDisplay");
+            const now = new Date();
+            const formattedDate = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear();
+            dateDisplay.innerHTML = formattedDate;
+
             document.querySelectorAll('td input[type="checkbox"]').forEach(checkbox => {
                 checkbox.addEventListener('change', function(){
                     const row = this.closest('tr');
@@ -374,26 +561,31 @@
             });
 
             var check = true;
+            var sel_table;
             function check_all() {
-                document.getElementById("id_corn").checked = check;
-                document.getElementById("id_tortilla").checked = check;
-                if (check){
-                    document.getElementById("id_corn").closest('tr').classList.add('highlighted');
-                    document.getElementById("id_tortilla").closest('tr').classList.add('highlighted');
-                } else {
-                    document.getElementById("id_corn").closest('tr').classList.remove('highlighted');
-                    document.getElementById("id_tortilla").closest('tr').classList.remove('highlighted');
+                var table;
+                if (sel_table == 'sl'){
+                    table = document.getElementById('slTableId');
+                } else{
+                    table = document.getElementById("tableId");
                 }
+                console.log(table);
                 
-                var z=0;
-                for (z=0; z<68; z++){
-                    document.getElementById(z).checked = check;
-                    if(check){
-                        document.getElementById(z).closest('tr').classList.add('highlighted');
-                    } else {
-                        document.getElementById(z).closest('tr').classList.remove("highlighted");
-                    }
+                var rows = table.querySelectorAll('tr');
+                rows.forEach(function(rowz){
+                    if(table.contains(rowz)){
+                        if(rowz.querySelector('input')){
+                            rowz.querySelector('input').checked = check;
+                        }
+                        
+                        if(check){
+                            rowz.classList.add('highlighted');
+                        } else {
+                            rowz.classList.remove("highlighted");
+                        }
                 }
+
+                });
                 if(check){
                     check = false;
                 } else {
@@ -401,6 +593,20 @@
                 }
             }
 
+            function allTable() {
+                document.getElementById('tableId').classList.remove("hidden-element");
+                document.getElementById("slTableId").classList.add("hidden-element");
+                sel_table = 'all';
+                
+
+            }
+
+            function slTable() {
+                document.getElementById('tableId').classList.add("hidden-element");
+                document.getElementById('slTableId').classList.remove('hidden-element');
+                sel_table = 'sl';
+            }
+            onLoad(slTable())
         </script>
     </body>
 </html>
