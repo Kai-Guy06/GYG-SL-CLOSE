@@ -16,6 +16,9 @@
                 margin-top: 10;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
                 font-size: 20;
+                width: 100%;
+                height: 100%;
+                
             }
             h1, h2 {
                 color: white;
@@ -70,6 +73,7 @@
             input {
                 box-sizing: border-box;
                 width: 100%;
+                font-size: 25;
             }
             th {
                 background: linear-gradient(90deg, #ffeb38, #f4ff96)
@@ -82,15 +86,23 @@
                 background-color: rgb(255, 255, 255);
             }
             .static {
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0);
+                border-color: rgba(0, 0, 0, 0);
+                border-width: 2;
+                box-shadow: none;
+            }
+            .spaced {
+                text-align: center;
+                width: 5%;
+                background-color: rgba(0, 0, 0, 0);
+                border-color: rgba(0, 0, 0, 0);
+                border-width: 2;
+                box-shadow: none;
+                height: 10;
             }
             th {
                 background-color: yellow;
                 
-            }
-            tr:hover {
-                background-color: rgb(255, 255, 255);
-                transition: background-color 0.1s ease-in-out;
             }
 
         </style>
@@ -103,9 +115,14 @@
         </header>
     </head>
     <body>
-        <button id="sl" onClick ="slTable()">Shift Leader Close Walk</button>
-        <button id="all" onClick = "allTable()">All Closing Tasks</button>
-        <button onClick="check_all()">Check All</button>
+        <table class="static">
+            <tr class = "static">
+                <td class = "spaced"><button id="sl" onClick ="slTable()">Shift Leader Close Walk</button></td>
+                <td class = "spaced"><button id="all" onClick = "allTable()">All Closing Tasks</button></td>
+                <td class = "spaced"><button onClick="check_all()">Check All</button></td>
+                <td class = "spaced"><button onClick = "reset()">Reset</button></td>
+            </tr>
+        </table>
         <p></p>
 
         <span>
@@ -437,38 +454,38 @@
                     <tr>
                         <th colspan="2">Notes</th>
                     </tr>
-                    <td colspan="2"><input></td>
+                    <td colspan="2" class = "static" style="background-color: white;"><input></td>
                 </table>
                 <table id="slTableId">
                     <tr>
                         <th colspan="2">SL - Closing Checklist</th>
                     </tr>
-                    <tr class = "static">
-                        <td>1</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>BrandMate Sing off Level 1 - don’t forget comments</td>
                     </tr>
-                    <tr class = "static">
-                        <td>2</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Count all tills</td>
                     </tr>
-                    <tr class = "static">
-                        <td>3</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Prepare Deposit bank and enter details on NAB Website</td>
                     </tr>
-                    <tr class = "static">
-                        <td>4</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Fill out Cash Management spreadsheet</td>
                     </tr>
-                    <tr class = "static">
-                        <td>5</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Enter Waste on CT</td>
                     </tr>
-                    <tr class = "static">
-                        <td>6</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Fill and Send KPI Report to RM, Paul, Gabi, Rosa, Lucas & Tati</td>
                     </tr>
-                    <tr class = "static">
-                        <td>7</td>
+                    <tr>
+                        <td><input type="checkbox"></td>
                         <td>Help crew to finish once SL tasks are done.</td>
                     </tr>
                     <tr>
@@ -546,7 +563,7 @@
                         <td><input type="checkbox" id="17"></td>
                         <td>Lock the backdoor and set the alarm just before leaving</td>
                     </tr>
-                    <tr>
+                    <tr class = "static" style="background-color: white;">
                         <td><b>SL</b></td>
                         <td><input></td>
                     </tr>
@@ -617,6 +634,10 @@
                 sel_table = 'sl';
             }
             slTable();
+
+            function reset() {
+                window.location.reload();
+            }
         </script>
     </body>
 </html>
