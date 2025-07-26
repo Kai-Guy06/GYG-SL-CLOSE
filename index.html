@@ -91,6 +91,9 @@
                 border-color: rgba(0, 0, 0, 0);
                 border-width: 2;
                 box-shadow: none;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
             }
             .spaced {
                 text-align: center;
@@ -120,7 +123,7 @@
             <tr class = "static">
                 <td class = "spaced"><button id="sl" onClick ="slTable()">Shift Leader Close Walk</button></td>
                 <td class = "spaced"><button id="all" onClick = "allTable()">All Closing Tasks</button></td>
-                <td class = "spaced"><button onClick="check_all()">Check All</button></td>
+                <td class = "spaced"><button onClick="check_all()" id = "checkButton">Check All</button></td>
                 <td class = "spaced"><button onClick = "reset()">Reset</button></td>
             </tr>
         </table>
@@ -129,10 +132,6 @@
         <span>
             <form>
                 <table id="tableId">
-                    <tr>
-                        <th onclick="check_all()">Completed</th>
-                        <th>Task</th>
-                    </tr>
                     <tr>
                         <th colspan="2">Line Close Tasks</th>
                     </tr>
@@ -574,7 +573,7 @@
         <script>
             const dateDisplay = document.getElementById("dateDisplay");
             const now = new Date();
-            const formattedDate = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear();
+            const formattedDate = now.getDate() + "/" + (now.getMonth() +1) + "/" + now.getFullYear();
             dateDisplay.innerHTML = formattedDate;
 
             document.querySelectorAll('td input[type="checkbox"]').forEach(checkbox => {
@@ -588,16 +587,21 @@
                 });
             });
 
-            var check = true;
+            var check;
+            var sl_check = true;
+            var al_check = true;
             var sel_table;
             function check_all() {
                 var table;
                 if (sel_table == 'sl'){
                     table = document.getElementById('slTableId');
+                    check = sl_check;
+                    sl_check = !sl_check
                 } else{
                     table = document.getElementById("tableId");
+                    check = al_check;
+                    al_check = !al_check;
                 }
-                console.log(table);
                 
                 var rows = table.querySelectorAll('tr');
                 rows.forEach(function(rowz){
@@ -614,10 +618,13 @@
                 }
 
                 });
+                var button = document.getElementById("checkButton");
                 if(check){
                     check = false;
+                    button.innerHTML = "UnCheck All";
                 } else {
                     check = true;
+                    button.innerHTML = "Check All";
                 }
             }
 
@@ -625,6 +632,14 @@
                 document.getElementById('tableId').classList.remove("hidden-element");
                 document.getElementById("slTableId").classList.add("hidden-element");
                 sel_table = 'all';
+                var button = document.getElementById("checkButton");
+                if(al_check){
+                    
+                    button.innerHTML = "Check All";
+                } else {
+                    
+                    button.innerHTML = "UnCheck All";
+                }
                 
 
             }
@@ -633,6 +648,13 @@
                 document.getElementById('tableId').classList.add("hidden-element");
                 document.getElementById('slTableId').classList.remove('hidden-element');
                 sel_table = 'sl';
+                var button = document.getElementById("checkButton");
+                if(sl_check){
+                    button.innerHTML = "Check All";
+                } else {
+                    
+                    button.innerHTML = "UnCheck All";
+                }
             }
             slTable();
 
