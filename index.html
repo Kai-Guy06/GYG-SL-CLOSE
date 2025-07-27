@@ -587,6 +587,24 @@
                 });
             });
 
+            document.addEventListener('DOMContentLoaded', function () {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+                //load saved states
+                checkboxes.forEach((checkbox, index) => {
+                    const savedState = localStorage.getItem('task' + index);
+                    if (savedState == 'true'){
+                        checkbox.checked = true;
+                        checkbox.closest('tr').classList.add('highlighted');
+                    }
+
+                    // save state when changed
+                    checkbox.addEventListener('change', () => {
+                        localStorage.setItem('task' + index, checkbox.checked);
+                    })
+                });
+            })
+
             var check;
             var sl_check = true;
             var al_check = true;
@@ -659,6 +677,7 @@
             slTable();
 
             function reset() {
+                localStorage.clear();
                 window.location.reload();
             }
         </script>
