@@ -113,7 +113,7 @@
         <header class = "headingContainer">
             <title>Shift Leader Close Checklist</title>
             <div>
-                <h1>GYG FM Shift Leader Close</h1>
+                <h1>GyG Shift Leader Close</h1>
                 <h2>Current Date: <span id='dateDisplay'></span></h2>
             </div>
         </header>
@@ -603,6 +603,17 @@
                         localStorage.setItem('task' + index, checkbox.checked);
                     })
                 });
+            });
+
+            document.querySelectorAll('table tr').forEach((row) => {
+                row.addEventListener('click', function(e) {
+                    if (e.target.tagName.toLowerCase() !== 'input') {
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        checkbox.dispatchEvent(new Event('change'));
+
+                    }
+                })
             })
 
             var check;
