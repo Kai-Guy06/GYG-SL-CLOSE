@@ -1,696 +1,129 @@
 <html>
-    <head>
-        <style>
-            html {
-                margin: -10;
-                padding: 0;
-            }
-            body {
-                background-image: url('background.png');
-                background-color: rgba(255, 255, 255, 0.8);
-                background-blend-mode: lighten;
-                background-size: cover;
-                text-align: center;
-            }
-            button {
-                margin-top: 10;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                font-size: 20;
-                width: 100%;
-                height: 100%;
-                background-color: rgb(255, 255, 255);
-                
-            }
-            h1, h2 {
-                color: white;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                vertical-align:middle;
-                padding-top: 25;
-            }
-            h2 {
-                text-align: left;
-                padding-left: 10;
-                font-size: 20;
-                padding-top: 0;
-            }
-            .headingContainer {
-                background: rgb(23, 23, 23);
-                padding-top: 1px;
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-                height: 140;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-                vertical-align: middle;             
-                
-            }
-            header {
-                align-items: center;
-            }
-            .hidden-element {
-                display: none;
-            }
-            tr {
-                background-color: rgb(255, 154, 154);
-                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-            table, th, td {
-                
-                border-color: #2c2c2c;
-                border-style: groove;
-                border-width: 1px;
-                border-collapse: collapse;
-                margin-left: auto;
-                margin-right: auto;
-                color: #1a1a1a;
-                
-            }
-            table{
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                margin-left: auto;
-                margin-right: auto;
-                width: 80%;
-            }
-            input {
-                box-sizing: border-box;
-                width: 100%;
-                font-size: 25;
-            }
-            th {
-                background: linear-gradient(90deg, #ffeb38, #f4ff96)
-            }
-            .subtitle {
-                text-align: center;
-                background-color: lightgrey;
-            }
-            .highlighted {
-                background-color: rgb(255, 255, 255);
-            }
-            .static {
-                background-color: rgba(255, 255, 255, 0);
-                border-color: rgba(0, 0, 0, 0);
-                border-width: 2;
-                box-shadow: none;
-                width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .spaced {
-                text-align: center;
-                width: 5%;
-                background-color: rgba(0, 0, 0, 0);
-                border-color: rgba(0, 0, 0, 0);
-                border-width: 2;
-                box-shadow: none;
-                height: 10;
-            }
-            th {
-                background-color: yellow;
-                
-            }
+<head>
+<style>
+html {margin: -10;padding: 0;}
+body {
+  background-image: url('background.png');
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  background-size: cover;
+  text-align: center;
+}
+button {
+  margin-top: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 20;
+  width: 80%;
+  height: 10%;
+  background-color: rgb(255, 255, 255);
+}
+h1, h2 {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  vertical-align:middle;
+  padding-top: 25;
+}
+h2 {text-align: left;padding-left: 10;font-size: 20;padding-top: 0;}
+.headingContainer {
+  background: rgb(23, 23, 23);
+  padding-top: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 140;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+}
+table, th, td, h2 {
+  border-color: #2c2c2c;
+  border-style: groove;
+  border-width: 1px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1a1a1a;
+}
+table {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+input {box-sizing: border-box;width: 100%;font-size: 25;}
+th {background: linear-gradient(90deg, #ffeb38, #f4ff96)}
+tr {background-color: rgb(255, 154, 154);font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+</style>
+<header class="headingContainer">
+  <title>Money Counter</title>
+  <div>
+    <h1>Money Counting Tool</h1>
+    <h2>Current Date: <span id='dateDisplay'></span></h2>
+  </div>
+</header>
+</head>
+<body>
+  <form>
+    <table id="moneyTable">
+      <tr><th>Denomination</th><th>Quantity</th></tr>
+      <tr><td>5¢</td><td><input type="number" id="c5" value=0></td></tr>
+      <tr><td>10¢</td><td><input type="number" id="c10" value=0></td></tr>
+      <tr><td>20¢</td><td><input type="number" id="c20" value=0></td></tr>
+      <tr><td>50¢</td><td><input type="number" id="c50" value=0></td></tr>
+      <tr><td>$1</td><td><input type="number" id="d1" value=0></td></tr>
+      <tr><td>$2</td><td><input type="number" id="d2" value=0></td></tr>
+      <tr><td>$5</td><td><input type="number" id="d5" value=0></td></tr>
+      <tr><td>$10</td><td><input type="number" id="d10" value=0></td></tr>
+      <tr><td>$20</td><td><input type="number" id="d20" value=0></td></tr>
+      <tr><td>$50</td><td><input type="number" id="d50" value=0></td></tr>
+      <tr><td>$100</td><td><input type="number" id="d100" value=0></td></tr>
+    </table>
+    <br>
+    <button type="button" onclick="calculate()">Calculate</button>
+  </form>
 
-        </style>
-        <header class = "headingContainer">
-            <title>Shift Leader Close Checklist</title>
-            <div>
-                <h1>GyG Shift Leader Close</h1>
-                <h2>Current Date: <span id='dateDisplay'></span></h2>
-            </div>
-        </header>
-    </head>
-    <body>
-        <table class="static">
-            <tr class = "static">
-                <td class = "spaced"><button id="sl" onClick ="slTable()">Shift Leader Close Walk</button></td>
-                <td class = "spaced"><button id="all" onClick = "allTable()">All Closing Tasks</button></td>
-                <td class = "spaced"><button onClick="check_all()" id = "checkButton">Check All</button></td>
-                <td class = "spaced"><button onClick = "reset()">Reset</button></td>
-            </tr>
-        </table>
-        <p></p>
+  <h2>Total: $<span id="total">0.00</span></h2>
+  <h2>Difference from $350: <span id="difference">0.00</span></h2>
+  <h2>Remove (largest denominations): <span id="removal"></span></h2>
 
-        <span>
-            <form>
-                <table id="tableId">
-                    <tr>
-                        <th colspan="2">Line Close Tasks</th>
-                    </tr>
-                    <tr>
-                        <td> <input type="checkbox" id="69"> </td>
-                        <td> <input id="id_value_corn" type="number" value=4 size=1> boxes of corn chips out to defrost</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="68"></td>
-                        <td><input id="id_value_12" type="number" value=2> boxes of 12' and <input type="number" id="id_value_10" value=2 size=1> box of 10' tortillas to defrost</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="0"></td>
-                        <td>4 boxes of 5.5' corn tortilla to defrost</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="1"></td>
-                        <td>Wipe down shelves underneath line</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="2"></td>
-                        <td>Clean 4 salamanders and  shelf below</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="3"></td>
-                        <td>Clean Quesadilla press</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="4"></td>
-                        <td>Clean cold line fridge</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="5"></td>
-                        <td>Clean and wipe chip warmer</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="6"></td>
-                        <td>Scrub cool room floor.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="7"></td>
-                        <td>Scrub cool room floor.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="8"></td>
-                        <td>Change guaca, pico and cheese to a clean container and wrap it</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="9"></td>
-                        <td>Empty guac sides, sour cream and chipotle mayo in a FIFO bottle</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="10"></td>
-                        <td>Empty bain marie water and clean the whole line</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="11"></td>
-                        <td>Set up line containers right</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="12"></td>
-                        <td>Set up the utensils</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="13"></td>
-                        <td>Clean floor drains</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="14"></td>
-                        <td>Waste all coriander and onions from salsa station and line.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="15"></td>
-                        <td>Make sure line is empty and turned off</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="16"></td>
-                        <td>turn off line fridge</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Fries Close Tasks</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="17"></td>
-                        <td>Clean the whole chip dump</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="18"></td>
-                        <td>Clean the floor under and behind the freezer drawer and hot box</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="19"></td>
-                        <td>Empty & clean shakers and leave them to air dry</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="20"></td>
-                        <td>Wipe all pipe shelves above the fryer</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="21"></td>
-                        <td>Daily Filter all fryers </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="22"></td>
-                        <td>Clean all freezer drawers</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="23"></td>
-                        <td>Clean churros fryer</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="24"></td>
-                        <td>Clean churros trays and place them back on the shelf ready to go</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="25"></td>
-                        <td>Clean floor under the fryer</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Sales Close Tasks</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle">SALES</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="26"></td>
-                        <td>Fill napkin's dispensers</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="27"></td>
-                        <td>Fill all drink's fridge (sales, app and DT) and refill BOH Fridge</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="28"></td>
-                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="29"></td>
-                        <td>Empty all bins in dinning area</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="30"></td>
-                        <td>Wipe all tables at dining area before putting furniture up.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="31"></td>
-                        <td>Empty and clean all dust pans.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="32"></td>
-                        <td>Clean the big bin (spray with water)</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle"> DT BnT</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="33"></td>
-                        <td>Restock: napkins, cuttlery, bags, dulce/chocolate sauce</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="34"></td>
-                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle">DT Box</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="35"></td>
-                        <td>Wipe down the counter and leave free of receitpts or drinks lids</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="36"></td>
-                        <td>Leave counter organised and free of clutter</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="37"></td>
-                        <td>Sweep and Scrub the floor under the counter</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="38"></td>
-                        <td>Leave 4 spare register rolls for next day </td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Coffee/APP/Soft Serve CLose Tasks</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle">COFFEE</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="39"></td>
-                        <td>Clean coffee machine</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="40"></td>
-                        <td>Clean grinder</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="41"></td>
-                        <td>Clean coffee machine bench</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="42"></td>
-                        <td>Clean and restock milk fridge (FIFO)</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="43"></td>
-                        <td>Restock all cups, all lids, sugar, sweetner, syrups</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle">APP/DEL</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="44"></td>
-                        <td>Restock APP/DEL Drinks fridge</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="45"></td>
-                        <td>Restock Dulce/ Chocolate sauce APP, DT and BnT</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="46"></td>
-                        <td>Clean and organise APP bench area</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="47"></td>
-                        <td>Clean and organise DEL Warmer (outside & inside)</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="subtitle">SOFT SERVE</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="48"></td>
-                        <td>Restock soft serve machine to the right level</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="49"></td>
-                        <td>Clean Soft serve bench and shelves underneath the machine</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="50"></td>
-                        <td>Pack away cones properly</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="51"></td>
-                        <td>Restock cups and spoons</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="52"></td>
-                        <td>Make sure sauces has FIFO label</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Cook and Kitchen Hand Close Tasks</th>
-                    </tr>
-                    <tr>
-                        <td class="subtitle" colspan="2">Cook</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="53"></td>
-                        <td>Cool Room rotation and FIFO checked and signed off</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="54"></td>
-                        <td>Remove and spray all hood filter</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="55"></td>
-                        <td>Clean and polish the entire hood</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="56"></td>
-                        <td>Clean Stove TOP</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="57"></td>
-                        <td>Clean all cook and prep benches</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="58"></td>
-                        <td>Clean all cook area walls</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="59"></td>
-                        <td>Leave all Cook pots and utensils clean and ready to go for next morning</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="60"></td>
-                        <td>Wipe shelves above the grill and stove</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="61"></td>
-                        <td>Clean all pepper and salt shakers & refill oil spray bottles</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">DISHWASHER</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="62"></td>
-                        <td>Wash all dishes</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="63"></td>
-                        <td>Organsie all dishes and utensils in the right place</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="64"></td>
-                        <td>Clean inside and wipe outside of both dishwashers</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="65"></td>
-                        <td>Wipe the sink wall and benches</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="66"></td>
-                        <td>Scrub both water spray gun</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="67"></td>
-                        <td>Scrub the floor underneath he dishwasher Tue, Thu and Sat</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Notes</th>
-                    </tr>
-                    <td colspan="2" class = "static" style="background-color: white;"><input></td>
-                </table>
-                <table id="slTableId">
-                    <tr>
-                        <th colspan="2">SL - Closing Checklist</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>BrandMate Sing off Level 1 - don’t forget comments</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Count all tills</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Prepare Deposit bank and enter details on NAB Website</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Fill out Cash Management spreadsheet</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Enter Waste on CT</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Fill and Send KPI Report to RM, Paul, Gabi, Rosa, Lucas & Tati</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Help crew to finish once SL tasks are done.</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">SL - Walking through after closing</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="0"></td>
-                        <td>All slim bins empty and with bin liners on.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="1"></td>
-                        <td>All electrical equipment turned off: salamandra, warmers, presses, churros fryer…</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="2"></td>
-                        <td>All gas appliances turned off: Fryer , grill, rice cokers and stove.</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="3"></td>
-                        <td>Cool room and freezers working and doors are properly closed</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="4"></td>
-                        <td>Cook's and line's fridges are  empty and turned off</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="5"></td>
-                        <td>Corn Chips and Corn Tacos Defrosting</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="6"></td>
-                        <td>Nothing left out of cool room (inspect benches and line & cooks fridges)</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="7"></td>
-                        <td>ALL Menu Board TV Screens OFF</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="8"></td>
-                        <td>Music OFF</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="9"></td>
-                        <td>Air con OFF</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="10"></td>
-                        <td>No opened boxes in the cool room. If opened please take the content out</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="11"></td>
-                        <td>Cool room organised for delivery and light off</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="12"></td>
-                        <td>Check Cool Room FIFO rotation - labels</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="13"></td>
-                        <td>Check fryers have been cleaned properly</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="14"></td>
-                        <td>Check dining area tables are cleaned and bin empty</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="15"></td>
-                        <td>Do I have to communicate any shortage in stock or food level for next day?</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="16"></td>
-                        <td>All doors and windows are properly closed and locked (double check backdoor)</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="17"></td>
-                        <td>Lock the backdoor and set the alarm just before leaving</td>
-                    </tr>
-                    <tr class = "static" style="background-color: white;">
-                        <td><b>SL</b></td>
-                        <td><input></td>
-                    </tr>
-                </table>
-            </form>
-        </span>
-        <script>
-            const dateDisplay = document.getElementById("dateDisplay");
-            const now = new Date();
-            const formattedDate = now.getDate() + "/" + (now.getMonth() +1) + "/" + now.getFullYear();
-            dateDisplay.innerHTML = formattedDate;
+<script>
+const dateDisplay = document.getElementById("dateDisplay");
+const now = new Date();
+dateDisplay.innerHTML = now.getDate() + "/" + (now.getMonth()+1) + "/" + now.getFullYear();
 
-            document.querySelectorAll('td input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function(){
-                    const row = this.closest('tr');
-                    if (this.checked) {
-                        row.classList.add('highlighted');
-                    } else{
-                        row.classList.remove('highlighted');
-                    }
-                });
-            });
+function calculate() {
+  const values = {
+    c5: 0.05, c10: 0.10, c20: 0.20, c50: 0.50,
+    d1: 1, d2: 2, d5: 5, d10: 10, d20: 20, d50: 50, d100: 100
+  };
+  let total = 0;
+  for (let id in values) {
+    total += document.getElementById(id).value * values[id];
+  }
+  total = Math.round(total*100)/100;
+  document.getElementById("total").innerText = total.toFixed(2);
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const diff = total - 350;
+  document.getElementById("difference").innerText = diff.toFixed(2);
 
-                //load saved states
-                checkboxes.forEach((checkbox, index) => {
-                    const savedState = localStorage.getItem('task' + index);
-                    if (savedState == 'true'){
-                        checkbox.checked = true;
-                        checkbox.closest('tr').classList.add('highlighted');
-                    }
+  if (diff <= 0) {
+    document.getElementById("removal").innerText = "No removal needed.";
+    return;
+  }
 
-                    // save state when changed
-                    checkbox.addEventListener('change', () => {
-                        localStorage.setItem('task' + index, checkbox.checked);
-                    })
-                });
-            });
-
-            document.querySelectorAll('table tr').forEach((row) => {
-                row.addEventListener('click', function(e) {
-                    if (e.target.tagName.toLowerCase() !== 'input') {
-                        const checkbox = this.querySelector('input[type="checkbox"]');
-                        checkbox.checked = !checkbox.checked;
-                        checkbox.dispatchEvent(new Event('change'));
-
-                    }
-                })
-            })
-
-            var check;
-            var sl_check = true;
-            var al_check = true;
-            var sel_table;
-            function check_all() {
-                var table;
-                if (sel_table == 'sl'){
-                    table = document.getElementById('slTableId');
-                    check = sl_check;
-                    sl_check = !sl_check
-                } else{
-                    table = document.getElementById("tableId");
-                    check = al_check;
-                    al_check = !al_check;
-                }
-                
-                var rows = table.querySelectorAll('tr');
-                rows.forEach(function(rowz){
-                    if(table.contains(rowz)){
-                        if(rowz.querySelector('input')){
-                            rowz.querySelector('input').checked = check;
-                        }
-                        
-                        if(check){
-                            rowz.classList.add('highlighted');
-                        } else {
-                            rowz.classList.remove("highlighted");
-                        }
-                }
-
-                });
-                var button = document.getElementById("checkButton");
-                if(check){
-                    check = false;
-                    button.innerHTML = "UnCheck All";
-                } else {
-                    check = true;
-                    button.innerHTML = "Check All";
-                }
-            }
-
-            function allTable() {
-                document.getElementById('tableId').classList.remove("hidden-element");
-                document.getElementById("slTableId").classList.add("hidden-element");
-                sel_table = 'all';
-                var button = document.getElementById("checkButton");
-                if(al_check){
-                    
-                    button.innerHTML = "Check All";
-                } else {
-                    
-                    button.innerHTML = "UnCheck All";
-                }
-                
-
-            }
-
-            function slTable() {
-                document.getElementById('tableId').classList.add("hidden-element");
-                document.getElementById('slTableId').classList.remove('hidden-element');
-                sel_table = 'sl';
-                var button = document.getElementById("checkButton");
-                if(sl_check){
-                    button.innerHTML = "Check All";
-                } else {
-                    
-                    button.innerHTML = "UnCheck All";
-                }
-            }
-            slTable();
-
-            function reset() {
-                localStorage.clear();
-                window.location.reload();
-            }
-        </script>
-    </body>
+  // Greedy removal using largest denominations
+  let remaining = diff;
+  const denoms = [100,50,20,10,5,2,1,0.5,0.2,0.1,0.05];
+  let result = [];
+  for (let d of denoms) {
+    let count = Math.floor((remaining + 0.00001) / d);
+    if (count > 0) {
+      result.push(`${count} × $${d}`);
+      remaining -= count * d;
+      remaining = Math.round(remaining*100)/100;
+    }
+  }
+  document.getElementById("removal").innerText = result.join(", ");
+}
+</script>
+</body>
 </html>
