@@ -117,27 +117,26 @@ function calculate() {
     return;
   }
 
-  // Greedy removal using largest denominations
   let remaining = diff;
   const denoms = [100,50,20,10,5,2,1,0.5,0.2,0.1,0.05];
-  let result = [];
+  let result = [''];
   for (let j =0; j < denoms.length; j++) {
     let i = 10-j;
     d = denoms[j];
     let count = Math.floor((remaining) / d);
     if (count > 0 && counts[i] > 0) {
       if(counts[i] >= count){
-        result.push(`${count} × $${d}`);
+        result.push(`${count} X $${d}`);
         remaining -= count * d;
       } else{
-        result.push(`${counts[i]} x $${d}`);
+        result.push(`${counts[i]} X $${d}`);
         remaining -= counts[i] * d;
       }
       remaining = Math.round(remaining * 100) / 100;
       
     }
   }
-  document.getElementById("removal").innerText = result.join(", ");
+  document.getElementById("removal").innerText = result.join("\n");
 }
 </script>
 </body>
