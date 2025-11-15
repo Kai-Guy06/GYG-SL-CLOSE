@@ -96,8 +96,10 @@ function calculate() {
     d1: 1, d2: 2, d5: 5, d10: 10, d20: 20, d50: 50, d100: 100
   };
   let total = 0;
+  let counts = [];
   for (let id in values) {
     total += document.getElementById(id).value * values[id];
+    counts.push(Number(document.getElementById(id).value));
   }
   total = Math.round(total*100)/100;
   document.getElementById("total").innerText = total.toFixed(2);
@@ -114,12 +116,20 @@ function calculate() {
   let remaining = diff;
   const denoms = [100,50,20,10,5,2,1,0.5,0.2,0.1,0.05];
   let result = [];
-  for (let d of denoms) {
-    let count = Math.floor((remaining + 0.00001) / d);
-    if (count > 0) {
-      result.push(`${count} × $${d}`);
-      remaining -= count * d;
-      remaining = Math.round(remaining*100)/100;
+  for (let j =0; j < denoms.length; j++) {
+    let i = 10-j;
+    d = denoms[j];
+    let count = Math.floor((remaining) / d);
+    if (count > 0 && counts[i] > 0) {
+      if(counts[i] >= count){
+        result.push(`${count} × $${d}`);
+        remaining -= count * d;
+      } else{
+        result.push(`${counts[i]} x $${d}`);
+        remaining -= counts[i] * d;
+      }
+      remaining = Math.round(remaining * 100) / 100;
+      
     }
   }
   document.getElementById("removal").innerText = result.join(", ");
