@@ -13,7 +13,7 @@ button {
   margin-top: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-size: 20;
-  width: 80%;
+  width: 60%;
   height: 10%;
   background-color: rgb(255, 255, 255);
 }
@@ -42,16 +42,17 @@ table, th, td, h2 {
   margin-left: auto;
   margin-right: auto;
   color: #1a1a1a;
+  width: 50%;
 }
 table {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 60%;
 }
 input {box-sizing: border-box;width: 100%;font-size: 25;}
 th {background: linear-gradient(90deg, #ffeb38, #f4ff96)}
-tr {background-color: rgb(255, 154, 154);font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+tr {background-color: rgb(191, 208, 240);font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 </style>
 <header class="headingContainer">
   <title>Money Counter</title>
@@ -65,17 +66,17 @@ tr {background-color: rgb(255, 154, 154);font-family:'Segoe UI', Tahoma, Geneva,
   <form>
     <table id="moneyTable">
       <tr><th>Denomination</th><th>Quantity</th></tr>
-      <tr><td>5¢</td><td><input type="number" id="c5" value=0></td></tr>
-      <tr><td>10¢</td><td><input type="number" id="c10" value=0></td></tr>
-      <tr><td>20¢</td><td><input type="number" id="c20" value=0></td></tr>
-      <tr><td>50¢</td><td><input type="number" id="c50" value=0></td></tr>
-      <tr><td>$1</td><td><input type="number" id="d1" value=0></td></tr>
-      <tr><td>$2</td><td><input type="number" id="d2" value=0></td></tr>
-      <tr><td>$5</td><td><input type="number" id="d5" value=0></td></tr>
-      <tr><td>$10</td><td><input type="number" id="d10" value=0></td></tr>
-      <tr><td>$20</td><td><input type="number" id="d20" value=0></td></tr>
-      <tr><td>$50</td><td><input type="number" id="d50" value=0></td></tr>
-      <tr><td>$100</td><td><input type="number" id="d100" value=0></td></tr>
+      <tr><td>5¢</td><td><input type="number" id="c5"></td></tr>
+      <tr><td>10¢</td><td><input type="number" id="c10"></td></tr>
+      <tr><td>20¢</td><td><input type="number" id="c20"></td></tr>
+      <tr><td>50¢</td><td><input type="number" id="c50"></td></tr>
+      <tr><td>$1</td><td><input type="number" id="d1"></td></tr>
+      <tr><td>$2</td><td><input type="number" id="d2"></td></tr>
+      <tr><td>$5</td><td><input type="number" id="d5"></td></tr>
+      <tr><td>$10</td><td><input type="number" id="d10"></td></tr>
+      <tr><td>$20</td><td><input type="number" id="d20"></td></tr>
+      <tr><td>$50</td><td><input type="number" id="d50"></td></tr>
+      <tr><td>$100</td><td><input type="number" id="d100"></td></tr>
     </table>
     <br>
     <button type="button" onclick="calculate()">Calculate</button>
